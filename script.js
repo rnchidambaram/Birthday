@@ -1,306 +1,312 @@
-// ================================
-// Birthday Website - Nandhini ❤️
-// ================================
+document.addEventListener("DOMContentLoaded", function () {
+
+    // ========================================
+    // Get Elements
+    // ========================================
+
+    const opening = document.getElementById("opening");
+    const birthday = document.getElementById("birthday");
+    const message = document.getElementById("message");
+    const final = document.getElementById("final");
+
+    const openBtn = document.getElementById("openBtn");
+    const continueBtn = document.getElementById("continueBtn");
+    const finalBtn = document.getElementById("finalBtn");
+
+    const music = document.getElementById("birthdayMusic");
 
 
-// Get sections
-const opening = document.getElementById("opening");
-const birthday = document.getElementById("birthday");
-const message = document.getElementById("message");
-const photos = document.getElementById("photos");
-const final = document.getElementById("final");
+    // ========================================
+    // Check Elements
+    // ========================================
+
+    console.log("Birthday website JavaScript loaded.");
+
+    console.log("Open button:", openBtn);
+    console.log("Continue button:", continueBtn);
+    console.log("Final button:", finalBtn);
+    console.log("Music:", music);
 
 
-// Get buttons
-const openBtn = document.getElementById("openBtn");
-const continueBtn = document.getElementById("continueBtn");
-const photosBtn = document.getElementById("photosBtn");
-const finalBtn = document.getElementById("finalBtn");
+    // ========================================
+    // Change Screen
+    // ========================================
 
+    function showScreen(screen) {
 
-// Music
-const music = document.getElementById("birthdayMusic");
+        opening.classList.add("hidden");
+        birthday.classList.add("hidden");
+        message.classList.add("hidden");
+        final.classList.add("hidden");
 
+        screen.classList.remove("hidden");
 
-// ================================
-// Screen Change Function
-// ================================
-
-function showScreen(screenToShow) {
-
-    const screens = [
-        opening,
-        birthday,
-        message,
-        photos,
-        final
-    ];
-
-    screens.forEach(screen => {
-        screen.classList.add("hidden");
-    });
-
-    screenToShow.classList.remove("hidden");
-
-}
-
-
-// ================================
-// Floating Hearts
-// ================================
-
-function createHeart() {
-
-    const heart = document.createElement("div");
-
-    heart.classList.add("floating-heart");
-
-    const hearts = ["❤️", "💕", "💖", "💗", "💓"];
-
-    heart.innerHTML =
-        hearts[Math.floor(Math.random() * hearts.length)];
-
-    heart.style.left =
-        Math.random() * 100 + "%";
-
-    heart.style.fontSize =
-        (15 + Math.random() * 25) + "px";
-
-    heart.style.animationDuration =
-        (5 + Math.random() * 4) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 9000);
-
-}
-
-
-// Create hearts continuously
-
-setInterval(createHeart, 700);
-
-
-// ================================
-// Open Surprise
-// ================================
-
-openBtn.addEventListener("click", () => {
-
-    showScreen(birthday);
-
-    // Start music after user interaction
-    music.play().catch(() => {
-        console.log("Music requires user interaction.");
-    });
-
-});
-
-
-// ================================
-// Birthday → Message
-// ================================
-
-continueBtn.addEventListener("click", () => {
-
-    showScreen(message);
-
-    startTyping();
-
-});
-
-
-// ================================
-// Romantic Birthday Message
-// ================================
-
-const birthdayText = `
-Dear Nandhini ❤️
-
-Today is a very special day because it is the day
-someone truly wonderful came into this world.
-
-I hope this birthday brings you endless happiness,
-beautiful moments, and a smile that never fades.
-
-May every dream you have slowly turn into reality,
-and may every new chapter of your life be filled
-with love, peace, success and happiness.
-
-You deserve all the beautiful things life has to offer.
-
-Keep smiling, keep shining and always stay the
-wonderful person you are.
-
-Once again...
-
-Happy Birthday, Nandhini! 🎂❤️
-
-May your special day be as beautiful and
-wonderful as you are. 💕
-`;
-
-
-// ================================
-// Typing Effect
-// ================================
-
-let typingStarted = false;
-
-function startTyping() {
-
-    if (typingStarted) {
-        return;
     }
 
-    typingStarted = true;
 
-    const textElement =
-        document.getElementById("typingText");
+    // ========================================
+    // Open Your Surprise
+    // ========================================
 
-    let index = 0;
+    openBtn.addEventListener("click", function () {
 
-    function typeCharacter() {
+        console.log("Open Your Surprise clicked!");
 
-        if (index < birthdayText.length) {
+        showScreen(birthday);
 
-            textElement.textContent +=
-                birthdayText.charAt(index);
 
-            index++;
+        // Start music
+        if (music) {
 
-            setTimeout(typeCharacter, 30);
+            music.play()
+                .then(function () {
+
+                    console.log("Music started successfully.");
+
+                })
+                .catch(function (error) {
+
+                    console.log(
+                        "Music could not start:",
+                        error
+                    );
+
+                });
+
+        }
+
+    });
+
+
+    // ========================================
+    // Birthday → Message
+    // ========================================
+
+    continueBtn.addEventListener("click", function () {
+
+        console.log("Birthday message button clicked!");
+
+        showScreen(message);
+
+        startTyping();
+
+    });
+
+
+    // ========================================
+    // Birthday Message
+    // ========================================
+
+    const birthdayText = `❤️Dear Nandhini ❤️
+
+Some people make life beautiful just by being in it. ❤️
+You are one of those people for me.
+On your special day, I just want you to know how deeply special you are to my heart.
+May your smile always stay bright, your dreams come true, and your heart always be filled with happiness.
+
+💕Happy Birthday, Nandhini! 💕 🎂❤️
+
+💕May your special day be as beautiful and wonderful as you are. 💕`;
+
+
+    // ========================================
+    // Typing Effect
+    // ========================================
+
+    let typingStarted = false;
+
+    function startTyping() {
+
+        if (typingStarted) {
+            return;
+        }
+
+        typingStarted = true;
+
+        const textElement =
+            document.getElementById("typingText");
+
+        let index = 0;
+
+
+        function typeCharacter() {
+
+            if (index < birthdayText.length) {
+
+                textElement.textContent +=
+                    birthdayText.charAt(index);
+
+                index++;
+
+                setTimeout(
+                    typeCharacter,
+                    30
+                );
+
+            }
+
+        }
+
+
+        typeCharacter();
+
+    }
+
+
+    // ========================================
+    // Message → Final
+    // ========================================
+
+    finalBtn.addEventListener("click", function () {
+
+        console.log("Final button clicked!");
+
+        showScreen(final);
+
+        createConfetti();
+
+    });
+
+
+    // ========================================
+    // Floating Hearts
+    // ========================================
+
+    function createHeart() {
+
+        const heart =
+            document.createElement("div");
+
+        heart.className =
+            "floating-heart";
+
+        const hearts = [
+            "❤️",
+            "💕",
+            "💖",
+            "💗",
+            "💓",
+            "✨"
+        ];
+
+        heart.textContent =
+            hearts[
+                Math.floor(
+                    Math.random() * hearts.length
+                )
+            ];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 25) + "px";
+
+        heart.style.animationDuration =
+            (5 + Math.random() * 5) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function () {
+
+            heart.remove();
+
+        }, 10000);
+
+    }
+
+
+    setInterval(createHeart, 800);
+
+
+    // ========================================
+    // Confetti
+    // ========================================
+
+    function createConfetti() {
+
+        const symbols = [
+            "❤️",
+            "💕",
+            "💖",
+            "✨",
+            "🎉",
+            "🎊",
+            "🎈"
+        ];
+
+
+        for (let i = 0; i < 50; i++) {
+
+            const item =
+                document.createElement("div");
+
+            item.textContent =
+                symbols[
+                    Math.floor(
+                        Math.random() *
+                        symbols.length
+                    )
+                ];
+
+            item.style.position =
+                "fixed";
+
+            item.style.left =
+                Math.random() * 100 + "vw";
+
+            item.style.top =
+                "-50px";
+
+            item.style.fontSize =
+                (18 + Math.random() * 25) + "px";
+
+            item.style.zIndex =
+                "9999";
+
+            item.style.pointerEvents =
+                "none";
+
+
+            const duration =
+                2000 +
+                Math.random() * 3000;
+
+
+            item.animate(
+                [
+                    {
+                        transform:
+                            "translateY(0) rotate(0deg)",
+
+                        opacity: 1
+                    },
+
+                    {
+                        transform:
+                            "translateY(110vh) rotate(720deg)",
+
+                        opacity: 0
+                    }
+                ],
+                {
+                    duration: duration,
+                    easing: "ease-out"
+                }
+            );
+
+
+            document.body.appendChild(item);
+
+
+            setTimeout(function () {
+
+                item.remove();
+
+            }, duration);
 
         }
 
     }
 
-    typeCharacter();
-
-}
-
-
-// ================================
-// Message → Photos
-// ================================
-
-photosBtn.addEventListener("click", () => {
-
-    showScreen(photos);
-
 });
-
-
-// ================================
-// Photos → Final Surprise
-// ================================
-
-finalBtn.addEventListener("click", () => {
-
-    showScreen(final);
-
-    createConfetti();
-
-});
-
-
-// ================================
-// Confetti
-// ================================
-
-function createConfetti() {
-
-    const symbols = [
-        "🎉",
-        "🎊",
-        "❤️",
-        "💕",
-        "✨",
-        "💖",
-        "🎈"
-    ];
-
-    for (let i = 0; i < 40; i++) {
-
-        const confetti =
-            document.createElement("div");
-
-        confetti.innerHTML =
-            symbols[
-                Math.floor(
-                    Math.random() * symbols.length
-                )
-            ];
-
-        confetti.style.position = "fixed";
-
-        confetti.style.left =
-            Math.random() * 100 + "vw";
-
-        confetti.style.top = "-50px";
-
-        confetti.style.fontSize =
-            (20 + Math.random() * 25) + "px";
-
-        confetti.style.zIndex = "9999";
-
-        confetti.style.pointerEvents = "none";
-
-        document.body.appendChild(confetti);
-
-
-        const duration =
-            2000 + Math.random() * 3000;
-
-
-        confetti.animate(
-            [
-                {
-                    transform: "translateY(0) rotate(0deg)",
-                    opacity: 1
-                },
-                {
-                    transform:
-                        `translateY(110vh) rotate(720deg)`,
-                    opacity: 0
-                }
-            ],
-            {
-                duration: duration,
-                easing: "ease-out"
-            }
-        );
-
-
-        setTimeout(() => {
-            confetti.remove();
-        }, duration);
-
-    }
-
-}
-
-
-// ================================
-// Prevent accidental right click
-// ================================
-
-// Uncomment the next section if you want
-// to disable right-click on the website.
-
-/*
-document.addEventListener("contextmenu", function(event) {
-    event.preventDefault();
-});
-*/
-
-
-// ================================
-// Console message
-// ================================
-
-console.log(
-    "🎂 Happy Birthday Nandhini! ❤️"
-);
