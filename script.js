@@ -102,12 +102,10 @@ document.addEventListener("DOMContentLoaded", function () {
 Some people make life beautiful just by being in it. ❤️
 You are one of those people for me.
 On your special day, I just want you to know how deeply special you are to my heart.
-May your smile always stay bright, your dreams come true, and your heart always be filled with happiness.
 
 💕Happy Birthday, Nandhini! 💕 🎂❤️
 
 💕May your special day be as beautiful and wonderful as you are. 💕`;
-
 
     // ========================================
     // Typing Effect
