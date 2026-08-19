@@ -103,7 +103,8 @@ Some people make life beautiful just by being in it. ❤️
 You are one of those people for me.
 On your special day, I just want you to know how deeply special you are to my heart.
 
-💕Happy Birthday, Nandhini! 💕 🎂
+💕Happy Birthday, Nandhini! 💕 🎂`
+
    // ========================================
     // Typing Effect
     // ========================================
