@@ -1,0 +1,659 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    color: white;
+
+    background: #12070d;
+}
+
+
+/* =========================================
+   BACKGROUND PHOTO
+========================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -3;
+
+    background-image:
+        url("images/nandhini.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    transform: scale(1.03);
+
+    animation: slowZoom 18s ease-in-out infinite alternate;
+}
+
+
+/* Dark romantic overlay */
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background:
+        linear-gradient(
+            rgba(10, 3, 8, 0.58),
+            rgba(35, 5, 18, 0.72)
+        );
+
+    backdrop-filter: blur(1px);
+}
+
+
+/* =========================================
+   SCREEN
+========================================= */
+
+.screen {
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================================
+   OPENING
+========================================= */
+
+.opening-content {
+
+    width: min(700px, 95%);
+
+    padding: 45px 30px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(0, 0, 0, 0.25);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 20px 80px rgba(0, 0, 0, 0.45);
+
+    animation: fadeIn 2s ease;
+}
+
+
+.heart {
+
+    font-size: 75px;
+
+    margin-bottom: 20px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+
+.little-text {
+
+    color: #ffd1dc;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+
+.opening-content h1 {
+
+    font-size: clamp(55px, 10vw, 110px);
+
+    margin-bottom: 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #ffb0c5,
+            #ffffff
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.subtitle {
+
+    color: #f9dce5;
+
+    font-size: 20px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+button {
+
+    border: none;
+
+    padding: 16px 32px;
+
+    border-radius: 50px;
+
+    font-size: 17px;
+
+    font-family: Georgia, serif;
+
+    color: white;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f81,
+            #c2185b
+        );
+
+    box-shadow:
+        0 10px 35px rgba(255, 64, 120, 0.4);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+button:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    box-shadow:
+        0 15px 45px rgba(255, 64, 120, 0.65);
+}
+
+
+button:active {
+
+    transform: scale(0.96);
+}
+
+
+/* =========================================
+   BIRTHDAY
+========================================= */
+
+.birthday-content {
+
+    width: min(850px, 95%);
+
+    padding: 40px;
+
+    animation: zoomIn 1.4s ease;
+}
+
+
+.small-text {
+
+    font-size: 18px;
+
+    color: #ffd0dc;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+
+.birthday-content h1 {
+
+    font-size: clamp(48px, 9vw, 105px);
+
+    background:
+        linear-gradient(
+            90deg,
+            white,
+            #ffadc3,
+            white
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.birthday-content h2 {
+
+    font-size: clamp(40px, 7vw, 80px);
+
+    color: #ff9db7;
+
+    margin-top: 10px;
+
+    text-shadow:
+        0 5px 30px rgba(255, 70, 120, 0.5);
+}
+
+
+.cake {
+
+    font-size: 95px;
+
+    margin: 25px 0;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+
+.birthday-message {
+
+    max-width: 650px;
+
+    margin: 0 auto 35px;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    color: #ffe8ee;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message-card {
+
+    width: min(800px, 94%);
+
+    padding: 50px 40px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(0, 0, 0, 0.32);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 80px rgba(0, 0, 0, 0.5);
+
+    animation: zoomIn 1.3s ease;
+}
+
+
+.small-heart {
+
+    font-size: 55px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+
+.message-card h1 {
+
+    font-size: clamp(40px, 7vw, 65px);
+
+    color: #ffabc0;
+
+    margin: 20px 0 30px;
+}
+
+
+#typingText {
+
+    min-height: 250px;
+
+    font-size: 20px;
+
+    line-height: 2;
+
+    color: #ffe7ed;
+
+    white-space: pre-line;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+.final-content {
+
+    width: min(800px, 95%);
+
+    padding: 40px;
+
+    animation: zoomIn 1.5s ease;
+}
+
+
+.big-heart {
+
+    font-size: 110px;
+
+    animation: heartbeat 1.3s infinite;
+}
+
+
+.final-small {
+
+    color: #ffd1dc;
+
+    font-size: 20px;
+
+    margin-top: 15px;
+}
+
+
+.final-content h1 {
+
+    font-size: clamp(40px, 7vw, 80px);
+
+    color: #ffadc2;
+
+    margin: 20px 0 25px;
+
+    text-shadow:
+        0 5px 30px rgba(255, 80, 130, 0.5);
+}
+
+
+.final-content h1 span {
+
+    color: white;
+}
+
+
+.final-content p {
+
+    font-size: 21px;
+
+    line-height: 1.9;
+
+    color: #ffe6ed;
+
+    margin-bottom: 25px;
+}
+
+
+.final-content h2 {
+
+    font-size: 28px;
+
+    color: #ffb7c9;
+}
+
+
+.stars {
+
+    font-size: 40px;
+
+    margin-top: 30px;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.floating-heart {
+
+    position: fixed;
+
+    bottom: -50px;
+
+    pointer-events: none;
+
+    z-index: 10;
+
+    animation:
+        rise 7s linear forwards;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes zoomIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.85);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+    }
+
+    50% {
+
+        transform: scale(1.18);
+    }
+}
+
+
+@keyframes floating {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(-15px);
+    }
+}
+
+
+@keyframes slowZoom {
+
+    from {
+
+        transform:
+            scale(1.03);
+    }
+
+    to {
+
+        transform:
+            scale(1.12);
+    }
+}
+
+
+@keyframes rise {
+
+    from {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+
+        opacity: 1;
+    }
+
+    to {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .opening-content {
+
+        padding:
+            35px 20px;
+    }
+
+    .opening-content h1 {
+
+        font-size: 55px;
+    }
+
+    .subtitle {
+
+        font-size: 17px;
+    }
+
+    .birthday-content {
+
+        padding: 20px;
+    }
+
+    .birthday-message {
+
+        font-size: 17px;
+
+        line-height: 1.7;
+    }
+
+    .cake {
+
+        font-size: 75px;
+    }
+
+    .message-card {
+
+        padding:
+            35px 20px;
+    }
+
+    #typingText {
+
+        font-size: 17px;
+
+        line-height: 1.8;
+
+        min-height: 280px;
+    }
+
+    .big-heart {
+
+        font-size: 85px;
+    }
+
+    .final-content p {
+
+        font-size: 18px;
+    }
+
+}
